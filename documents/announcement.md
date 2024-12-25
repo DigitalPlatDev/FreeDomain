@@ -2,7 +2,7 @@
 
 ## December 25, 2024 6:40 (GMT+0)
 
-We regret to inform you that due to an excessive number of scam pages detected and associated with *.US.KG domains, the .KG registry has set our domain registry status to "Inactive." As a result, all registered *.US.KG domains are temporarily unable to resolve and are currently inaccessible.
+We regret to inform you that the .KG registry has set the status of US.KG to "Inactive" and enforced a suspended resolving status. As a result, all registered *.US.KG domains are temporarily unable to resolve and are currently inaccessible.
 
 Please rest assured that we are actively communicating and collaborating with the .KG registry to resolve this issue as swiftly as possible. We are implementing enhanced measures to prevent similar incidents in the future and are working tirelessly to restore full service.
 
