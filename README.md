@@ -1,6 +1,6 @@
 # DigitalPlat FreeDomain – **Your Free Domain Awaits!**
 
-## 📢 Announcement 📢  December 25, 2024 6:40
+## 📢 Announcement 📢  December 25, 2024 6:40 (GMT+0)
 
 We regret to inform you that due to an excessive number of scam pages detected and associated with *.US.KG domains, the .KG registry has set our domain registry status to "Inactive." As a result, all registered *.US.KG domains are temporarily unable to resolve and are currently inaccessible.
 
