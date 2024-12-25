@@ -15,6 +15,7 @@ We sincerely apologize for any inconvenience this may cause and appreciate your 
 
 Thank you for your continued support.
 
+[View the latest update](https://github.com/DigitalPlatDev/FreeDomain/blob/main/documents/announcement.md)
 
 ## 🌐 Say Goodbye to Domain Fees
 
