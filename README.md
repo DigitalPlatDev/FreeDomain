@@ -1,5 +1,15 @@
 # DigitalPlat FreeDomain – **Your Free Domain Awaits!**
 
+## 📢 Announcement 📢
+
+We regret to inform you that due to an excessive number of scam pages detected and associated with *.US.KG domains, the .KG registry has set our domain registry status to "Inactive." As a result, all registered *.US.KG domains are temporarily unable to resolve and are currently inaccessible.
+
+Please rest assured that we are actively communicating and collaborating with the .KG registry to address this issue as swiftly as possible. We are fully committed to resolving the matter and implementing enhanced measures to prevent similar incidents in the future.
+
+We sincerely apologize for the inconvenience this has caused and appreciate your understanding and patience during this challenging time. Further updates will be provided as soon as progress is made, and we are working tirelessly to restore services at the earliest opportunity.
+
+Thank you for your continued support.
+
 ## 🌐 Say Goodbye to Domain Fees
 
 Welcome to **DigitalPlat FreeDomain**, where we believe everyone deserves a digital identity. Whether you're an individual, or an organization, we’re offering free domain names to bring your ideas to life – no strings attached!
