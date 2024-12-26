@@ -1,6 +1,9 @@
 # 📢 Announcement Page📢  
+## December 26, 2024
 
-## December 25, 2024 6:40 (GMT+0)
+The US.KG domain has been fully restored, and all domains are functioning normally. If you are unable to resolve the domain properly, please clear your DNS cache or wait up to 24 hours for full DNS propagation.
+
+## December 25, 2024
 
 We regret to inform you that the .KG registry has set the status of US.KG to "Inactive" and enforced a suspended resolving status. As a result, all registered *.US.KG domains are temporarily unable to resolve and are currently inaccessible.
 
