@@ -4,6 +4,8 @@
 
 The US.KG domain has been fully restored, and all domains are functioning normally. If you are unable to resolve the domain properly, please clear your DNS cache or wait up to 24 hours for full DNS propagation.
 
+We are actively communicating with Kyrgyzstan (.KG domain registry) to ensure that similar incidents are minimized as much as possible. We emphasize proactive collaboration and encourage any issues to be discussed with us in advance to guarantee stable service.
+
 ## 🌐 Say Goodbye to Domain Fees
 
 Welcome to **DigitalPlat FreeDomain**, where we believe everyone deserves a digital identity. Whether you're an individual, or an organization, we’re offering free domain names to bring your ideas to life – no strings attached!
