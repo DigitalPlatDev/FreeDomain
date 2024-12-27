@@ -3,6 +3,8 @@
 
 The US.KG domain has been fully restored, and all domains are functioning normally. If you are unable to resolve the domain properly, please clear your DNS cache or wait up to 24 hours for full DNS propagation.
 
+We are actively communicating with Kyrgyzstan (.KG domain registry) to ensure that similar incidents are minimized as much as possible. We emphasize proactive collaboration and encourage any issues to be discussed with us in advance to guarantee stable service.
+
 ## December 25, 2024
 
 We regret to inform you that the .KG registry has set the status of US.KG to "Inactive" and enforced a suspended resolving status. As a result, all registered *.US.KG domains are temporarily unable to resolve and are currently inaccessible.
