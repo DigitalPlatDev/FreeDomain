@@ -6,6 +6,8 @@ The US.KG domain has been fully restored, and all domains are functioning normal
 
 We are actively communicating with Kyrgyzstan (.KG domain registry) to ensure that similar incidents are minimized as much as possible. We emphasize proactive collaboration and encourage any issues to be discussed with us in advance to guarantee stable service.
 
+**We have not recommended users to migrate to any other domain. Such messages are purely rumors.**
+
 ## 🌐 Say Goodbye to Domain Fees
 
 Welcome to **DigitalPlat FreeDomain**, where we believe everyone deserves a digital identity. Whether you're an individual, or an organization, we’re offering free domain names to bring your ideas to life – no strings attached!
