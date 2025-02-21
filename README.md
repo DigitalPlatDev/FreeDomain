@@ -1,4 +1,16 @@
 # DigitalPlat FreeDomain – **Your Free Domain Awaits!**
+**⚠️⚠️ February 21, 2025 - Important Notice ⚠️⚠️**  
+
+Due to the misuse of the **US.KG** domain by certain criminal organizations, it has been reported to the **.KG** registry. As a result, the **.KG** domain registry has **suspended DNS resolution** for all **\*.US.KG** domains, making them temporarily inaccessible.  
+
+We have already responded to the **.KG** registry and are now waiting for them to restore DNS resolution. This process may take some time, so we kindly ask for your patience. In the meantime, we recommend checking our **official repository** or **joining our discussion group** for the latest updates:  
+🔗 [https://github.com/DigitalPlatDev/FreeDomain?tab=readme-ov-file#-join-our-community](https://github.com/DigitalPlatDev/FreeDomain?tab=readme-ov-file#-join-our-community)  
+
+This suspension was **a decision made by the .KG registry and not by us**. Typically, **US.KG** domains should be restored soon.  
+
+We appreciate your understanding and support. Moving forward, we will **enhance our review mechanisms and implement KYC measures** to prevent further misuse, ensuring a safer and freer internet for everyone.  
+
+Thank you for your patience! 🙏
 
 ## 🌐 Say Goodbye to Domain Fees
 
