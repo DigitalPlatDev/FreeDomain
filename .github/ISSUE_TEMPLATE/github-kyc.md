@@ -11,14 +11,15 @@ assignees: ''
 
 Please make sure your GitHub account meets the following requirements (all are required):
 
-- [ ] The issue title **must** be: Request GitHub KYC - Your US.KG Panel registered username. This ensures our automated script can detect your registered username. (For example, your title should be:  **Request GitHub KYC-example**)
-- [ ] This is not a new GitHub account; it has existing repositories and stars. (New registered GitHub accounts are not accepted)
-- [ ] This is my first DigitalPlat FreeDomain account.
-- [ ] I promise not to use the domain name for criminal or abusive purposes. 
+- [x] The issue title **must** be: Request GitHub KYC - Your US.KG Panel registered username. This ensures our automated script can detect your registered username. (For example, your title should be:  **Request GitHub KYC-example**)
+- [x] This is not a new GitHub account; it has existing repositories and stars. (New registered GitHub accounts are not accepted)
+- [x] This is my first DigitalPlat FreeDomain account.
+- [x] I promise not to use the domain name for criminal or abusive purposes. 
 
 **Your Account Details (US.KG NIC Panel):**
 
 Please fill out the following information; otherwise, your request will not be processed:
 
-- Username: 
-- Reason for Registering the .US.KG Domain Name (Why):
+- Username: arafpckkoutlook
+- Account Registration Email: arafpckk@outlook.com
+- Reason for Registering the .US.KG Domain Name (Why): For open source development and deployment purposes. trial and error mvp development purposes for non profit division of of our tokyo branch.
