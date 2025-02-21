@@ -1,4 +1,16 @@
-# 📢 Announcement Page📢  
+# 📢 Announcement Page📢
+## February 21, 2025
+
+Due to the misuse of the **US.KG** domain by certain criminal organizations, it has been reported to the **.KG** registry. As a result, the **.KG** domain registry has **suspended DNS resolution** for all **\*.US.KG** domains, making them temporarily inaccessible.  
+
+We have already responded to the **.KG** registry and are now waiting for them to restore DNS resolution. This process may take some time, so we kindly ask for your patience. In the meantime, we recommend checking our **official repository** or **joining our discussion group** for the latest updates:  
+🔗 [https://github.com/DigitalPlatDev/FreeDomain?tab=readme-ov-file#-join-our-community](https://github.com/DigitalPlatDev/FreeDomain?tab=readme-ov-file#-join-our-community)  
+
+This suspension was **a decision made by the .KG registry and not by us**. Typically, **US.KG** domains should be restored soon.  
+
+We appreciate your understanding and support. Moving forward, we will **enhance our review mechanisms and implement KYC measures** to prevent further misuse, ensuring a safer and freer internet for everyone.  
+
+Thank you for your patience! 🙏
 ## December 26, 2024
 
 The US.KG domain has been fully restored, and all domains are functioning normally. If you are unable to resolve the domain properly, please clear your DNS cache or wait up to 24 hours for full DNS propagation.
