@@ -1,4 +1,4 @@
-# DigitalPlat FreeDomain – **Your Free Domain Awaits!**
+# DigitalPlat FreeDomain – **Your Free Domain Awaits**
 **⚠️⚠️ February 21, 2025 - Important Notice ⚠️⚠️**  
 
 Due to the misuse of the **US.KG** domain by certain criminal organizations, it has been reported to the **.KG** registry. As a result, the **.KG** domain registry has **suspended DNS resolution** for all **\*.US.KG** domains, making them temporarily inaccessible.  
