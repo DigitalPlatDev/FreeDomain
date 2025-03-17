@@ -43,7 +43,7 @@ Check [FAQ Page](./documents/faq.md)
 
 ### 🤝 Join Our Community!
 
-🆕 Join the official [DigitalPlat FreeDomain Telegram group](https://t.me/digitalplatdomain) or [Discord server](https://discord.gg/7mrqAAqcSa) today! Be the first to know about the latest updates and happenings! Got questions? Facing challenges? Or simply want to show off your awesome builds? Don’t wait—become part of our community now! 🚀
+🆕 Join the official [DigitalPlat FreeDomain Telegram group](https://t.me/digitalplatdomain) or [Discord server](https://discord.gg/ma4RZzMmVW) today! Be the first to know about the latest updates and happenings! Got questions? Facing challenges? Or simply want to show off your awesome builds? Don’t wait—become part of our community now! 🚀
 
 ---
 
