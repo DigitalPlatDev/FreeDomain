@@ -1,0 +1,192 @@
+mixed-port: 7896
+allow-lan: false
+mode: rule
+log-level: info
+external-controller: '127.0.0.1:9097'
+unified-delay: true
+profile:
+    store-selected: true
+tun:
+    mtu: 1500
+dns:
+    enable: true
+    use-system-hosts: false
+    listen: '127.0.0.1:5335'
+    ipv6: true
+    default-nameserver: [180.76.76.76, 182.254.118.118, 223.6.6.6, 180.184.1.1]
+    enhanced-mode: fake-ip
+    fake-ip-range: 198.18.0.1/16
+    fake-ip-filter: ['*.lan', 'stun.*.*.*', 'stun.*.*', time.windows.com, time.nist.gov, time.apple.com, time.asia.apple.com, '*.ntp.org.cn', '*.openwrt.pool.ntp.org', time1.cloud.tencent.com, time.ustc.edu.cn, pool.ntp.org, ntp.ubuntu.com, ntp.aliyun.com, ntp1.aliyun.com, ntp2.aliyun.com, ntp3.aliyun.com, ntp4.aliyun.com, ntp5.aliyun.com, ntp6.aliyun.com, ntp7.aliyun.com, time1.aliyun.com, time2.aliyun.com, time3.aliyun.com, time4.aliyun.com, time5.aliyun.com, time6.aliyun.com, time7.aliyun.com, '*.time.edu.cn', time1.apple.com, time2.apple.com, time3.apple.com, time4.apple.com, time5.apple.com, time6.apple.com, time7.apple.com, time1.google.com, time2.google.com, time3.google.com, time4.google.com, music.163.com, '*.music.163.com', '*.126.net', musicapi.taihe.com, music.taihe.com, songsearch.kugou.com, trackercdn.kugou.com, '*.kuwo.cn', api-jooxtt.sanook.com, api.joox.com, joox.com, y.qq.com, '*.y.qq.com', streamoc.music.tc.qq.com, mobileoc.music.tc.qq.com, isure.stream.qqmusic.qq.com, dl.stream.qqmusic.qq.com, aqqmusic.tc.qq.com, amobile.music.tc.qq.com, '*.xiami.com', '*.music.migu.cn', music.migu.cn, '*.msftconnecttest.com', '*.msftncsi.com', localhost.ptlogin2.qq.com, '*.*.*.srv.nintendo.net', '*.*.stun.playstation.net', 'xbox.*.*.microsoft.com', '*.ipv6.microsoft.com', '*.*.xboxlive.com', speedtest.cros.wr.pvp.net]
+    nameserver: ['https://223.6.6.6/dns-query#h3=true', 'https://223.5.5.5/dns-query#h3=true', 'https://223.6.6.6/dns-query', 'https://120.53.53.53/dns-query', 'https://dns.rubyfish.cn/dns-query', 'https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+    fallback: ['https://000000.dns.nextdns.io/dns-query#h3=true', 'https://101.101.101.101/dns-query', 'https://208.67.220.220/dns-query', 'https://dns.rubyfish.cn/dns-query', 'tls://8.8.4.4', 'tls://1.0.0.1:853', 'https://cloudflare-dns.com/dns-query', 'https://dns.google/dns-query']
+    fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32, 127.0.0.1/32], domain: [+.google.com, +.facebook.com, +.twitter.com, +.youtube.com, +.xn--ngstr-lra8j.com, +.google.cn, +.googleapis.cn, +.googleapis.com, +.gvt1.com] }
+
+proxies:
+
+  - name: Free VMESS Proxy Server00
+    port: 80
+    uuid: dc6e8c2f-d6c7-5408-8b44-c4888dc4c0bc
+    server: 45.77.178.67
+    cipher: auto
+    alterId: 0
+    type: vmess
+    network: http
+    http-opts:
+      method: "GET"
+      path:
+        - '/'
+      headers:
+        Host:
+          - www.cloudflare.com
+          - www.amazon.com
+          - bing.com
+        User-Agent:
+          - "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36"
+          - "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_2 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/53.0.2785.109 Mobile/14A456 Safari/601.1.46"
+        Connection:
+          - "keep-alive"
+        Accept-Encoding:
+          - gzip
+          - deflate
+
+  - name: Free VMESS Proxy Server01
+    port: 80
+    uuid: ca60ab05-7433-5c1a-870d-7c7945732bef
+    server: 45.76.153.172
+    cipher: auto
+    alterId: 0
+    type: vmess
+    network: http
+    http-opts:
+      method: "GET"
+      path:
+        - '/'
+      headers:
+        Host:
+          - www.cloudflare.com
+          - www.amazon.com
+          - bing.com
+        User-Agent:
+          - "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36"
+          - "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_2 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/53.0.2785.109 Mobile/14A456 Safari/601.1.46"
+        Connection:
+          - "keep-alive"
+        Accept-Encoding:
+          - gzip
+          - deflate
+
+  - name: Free VMESS Proxy Server02
+    port: 80
+    uuid: 4a9e3dd7-8b1f-504e-bc88-630e61c91985
+    server: 45.77.178.67
+    cipher: auto
+    alterId: 0
+    type: vmess
+    network: http
+    http-opts:
+      method: "GET"
+      path:
+        - '/'
+      headers:
+        Host:
+          - www.cloudflare.com
+          - www.amazon.com
+          - bing.com
+        User-Agent:
+          - "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36"
+          - "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_2 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/53.0.2785.109 Mobile/14A456 Safari/601.1.46"
+        Connection:
+          - "keep-alive"
+        Accept-Encoding:
+          - gzip
+          - deflate
+
+  - name: Free VMESS Proxy Server03
+    port: 80
+    uuid: d31c59c2-6ab0-5511-8a3d-c934de2f32c5
+    server: 45.76.153.172
+    cipher: auto
+    alterId: 0
+    type: vmess
+    network: http
+    http-opts:
+      method: "GET"
+      path:
+        - '/'
+      headers:
+        Host:
+          - www.cloudflare.com
+          - www.amazon.com
+          - bing.com
+        User-Agent:
+          - "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36"
+          - "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_2 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/53.0.2785.109 Mobile/14A456 Safari/601.1.46"
+        Connection:
+          - "keep-alive"
+        Accept-Encoding:
+          - gzip
+          - deflate
+
+
+proxy-groups:
+  - name: Free Clash Sub
+    proxies:
+      - Free VMESS Proxy Server00
+      - Free VMESS Proxy Server01
+      - Free VMESS Proxy Server02
+      - Free VMESS Proxy Server03
+
+    type: url-test
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 300
+  - name: 🔥ChatGPT
+    proxies:
+      - Free VMESS Proxy Server00
+      - Free VMESS Proxy Server01
+      - Free VMESS Proxy Server02
+      - Free VMESS Proxy Server03
+
+    type: url-test
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 300
+
+rules:
+    - DOMAIN-SUFFIX,apple.com,DIRECT
+    - DOMAIN-SUFFIX,microsoft.com,DIRECT
+    - DOMAIN-SUFFIX,amazon.com,DIRECT
+    - DOMAIN-SUFFIX,baidu.com,DIRECT
+    - DOMAIN-SUFFIX,taobao.com,DIRECT
+    - DOMAIN-SUFFIX,jd.com,DIRECT
+    - DOMAIN-SUFFIX,qq.com,DIRECT
+    - DOMAIN-SUFFIX,instagram.com,Free Clash Sub
+    - DOMAIN-SUFFIX,stripe.com,Free Clash Sub
+    - DOMAIN-SUFFIX,chatgpt.com,Free Clash Sub
+    - DOMAIN-SUFFIX,openai.com,Free Clash Sub
+    - DOMAIN-SUFFIX,google.com,Free Clash Sub
+    - DOMAIN-SUFFIX,gstatic.com,Free Clash Sub
+    - DOMAIN-KEYWORD,facebook,Free Clash Sub
+    - 'DOMAIN,subapi.doggysub.uk,DIRECT'
+    - 'PROCESS-NAME,v2ray,DIRECT'
+    - 'PROCESS-NAME,xray,DIRECT'
+    - 'PROCESS-NAME,naive,DIRECT'
+    - 'PROCESS-NAME,trojan,DIRECT'
+    - 'PROCESS-NAME,trojan-go,DIRECT'
+    - 'PROCESS-NAME,ss-local,DIRECT'
+    - 'PROCESS-NAME,privoxy,DIRECT'
+    - 'PROCESS-NAME,leaf,DIRECT'
+    - 'PROCESS-NAME,v2ray.exe,DIRECT'
+    - 'PROCESS-NAME,xray.exe,DIRECT'
+    - 'PROCESS-NAME,naive.exe,DIRECT'
+    - 'PROCESS-NAME,trojan.exe,DIRECT'
+    - 'PROCESS-NAME,trojan-go.exe,DIRECT'
+    - 'PROCESS-NAME,ss-local.exe,DIRECT'
+    - 'PROCESS-NAME,privoxy.exe,DIRECT'
+    - 'PROCESS-NAME,leaf.exe,DIRECT'
+    - 'PROCESS-NAME,Surge,DIRECT'
+    - 'PROCESS-NAME,Surge 2,DIRECT'
+    - 'PROCESS-NAME,Surge 3,DIRECT'
+    - 'PROCESS-NAME,Surge 4,DIRECT'
+    - 'PROCESS-NAME,Surge%202,DIRECT'
+    - 'PROCESS-NAME,Surge%203,DIRECT'
+    - 'PROCESS-NAME,Surge%204,DIRECT'
+    - 'PROCESS-NAME,Thunder,DIRECT'
