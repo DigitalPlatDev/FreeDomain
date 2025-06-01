@@ -1,27 +1,34 @@
-# netlify.yml
-build:
-  # Directory containing the source files (where index.html is located)
-  base: .
-  # Directory where the built site will be published
-  publish: .
-  # Build command (not needed for a single HTML file, but included for clarity)
-  command: echo "No build command required for static HTML"
+# config.yml
+site:
+  title: Arshad Kirana Store
+  description: Your one-stop shop for quality groceries and essentials in Khiriband, Bhagalpur.
+  url: https://your-site-name.netlify.app
+  email: mdsahir255@gmail.com
+  phone: +91 7479961459
+  address: Khiriband, Bhagalpur 812005, India
+  author: Arshad Kirana Store Team
 
-# Redirects (optional, for clean URLs or future expansions)
-redirects:
-  - from: /* # Catch-all for single-page apps or clean URLs
-    to: /index.html
-    status: 200
+theme:
+  primary_color: "#ef4444" # Tailwind red-500
+  secondary_color: "#f8e8d9" # Cream for image box
+  fonts:
+    heading: Poppins
+    body: Roboto
 
-# Headers for caching and performance (optional but recommended)
-headers:
-  - for: /*
-    values:
-      Cache-Control: max-age=3600 # Cache assets for 1 hour
-      X-Content-Type-Options: nosniff
-      X-Frame-Options: DENY
-      X-XSS-Protection: 1; mode=block
+pages:
+  - name: Home
+    id: home
+    description: Welcome section with a call-to-action
+  - name: Services
+    id: services
+    description: Quality products, fast delivery, customer support
+  - name: Testimonials
+    id: testimonials
+    description: Customer reviews from Ravi and Md Sarik
+  - name: Contact
+    id: contact
+    description: Contact form and store details
 
-# Environment variables (optional, none needed for this static site)
-# environment:
-#   KEY: value
+images:
+  hero_background: https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80
+  promo_image: https://export-download.canva.com/SMZJE/DAGpF7SMZJE/2/0/0001-1816543943321826787.png
