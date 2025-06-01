@@ -177,8 +177,7 @@
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 64, // Adjust for fixed navbar height
-                        behavior: 'smooth'
+                       behavior: 'smooth'
                     });
                 }
             });
