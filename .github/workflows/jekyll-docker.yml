@@ -23,10 +23,7 @@
         }
         /* Custom styles for the image box */
         .image-box {
-            background-color: #f8e8d9; /* Cream background */
-            border-bottom: 4px solid #8b5e3c; /* Brown border to match image theme */
-        }
-    </style>
+                </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
 </head>
 <body class="font-body text-gray-800 bg-white">
