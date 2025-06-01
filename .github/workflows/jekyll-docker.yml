@@ -177,7 +177,7 @@
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                       behavior: 'smooth'
+                      
                     });
                 }
             });
