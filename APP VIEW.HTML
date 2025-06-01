@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flipkart Clone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div id="app" class="max-w-7xl mx-auto p-4">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">MyKart</h1>
+      <div>
+        <span id="cart-count" class="bg-red-500 text-white rounded-full px-2 py-1">0</span>
+        <button id="view-cart" class="ml-4 bg-white text-blue-600 px-4 py-2 rounded">View Cart</button>
+        <button id="login-btn" class="ml-2 bg-white text-blue-600 px-4 py-2 rounded">Login</button>
+      </div>
+    </header>
+
+    <!-- Product Listing -->
+    <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6"></div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden flex items-center justify-center">
+      <div class="bg-white p-6 rounded-lg w-full max-w-md">
+        <h2 class="text-xl font-bold mb-4">Your Cart</h2>
+        <div id="cart-items"></div>
+        <p id="cart-total" class="font-bold mt-4">Total: ₹0</p>
+        <button id="checkout-btn" class="bg-blue-600 text-white px-4 py-2 rounded mt-4 w-full">Checkout</button>
+        <button id="close-cart" class="bg-gray-300 text-black px-4 py-2 rounded mt-2 w-full">Close</button>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden flex items-center justify-center">
+      <div class="bg-white p-6 rounded-lg w-full max-w-md">
+        <h2 class="text-xl font-bold mb-4">Login</h2>
+        <input id="username" type="text" placeholder="Username" class="w-full p-2 mb-4 border rounded">
+        <input id="password" type="password" placeholder="Password" class="w-full p-2 mb-4 border rounded">
+        <button id="submit-login" class="bg-blue-600 text-white px-4 py-2 rounded w-full">Login</button>
+        <button id="close-login" class="bg-gray-300 text-black px-4 py-2 rounded mt-2 w-full">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mock product data with verified Unsplash images
+    const products = [
+      { id: 1, name: "Smartphone", price: 15000, image: "https://images.unsplash.com/photo-1607936854279-55e8a4c64888?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80" },
+      { id: 2, name: "Laptop", price: 50000, image: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80" },
+      { id: 3, name: "Headphones", price: 2000, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80" },
+      { id: 4, name: "Smartwatch", price: 5000, image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80" },
+    ];
+
+    let cart = [];
+    let isLoggedIn = false;
+
+    // DOM Elements
+    const productList = document.getElementById("product-list");
+    const cartModal = document.getElementById("cart-modal");
+    const loginModal = document.getElementById("login-modal");
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+    const cartCount = document.getElementById("cart-count");
+    const viewCartBtn = document.getElementById("view-cart");
+    const closeCartBtn = document.getElementById("close-cart");
+    const checkoutBtn = document.getElementById("checkout-btn");
+    const loginBtn = document.getElementById("login-btn");
+    const closeLoginBtn = document.getElementById("close-login");
+    const submitLoginBtn = document.getElementById("submit-login");
+
+    // Debug: Check if DOM elements are found
+    console.log("DOM Elements Loaded:", {
+      productList: !!productList,
+      cartModal: !!cartModal,
+      loginModal: !!loginModal,
+      cartItems: !!cartItems,
+      cartTotal: !!cartTotal,
+      cartCount: !!cartCount,
+      viewCartBtn: !!viewCartBtn,
+      closeCartBtn: !!closeCartBtn,
+      checkoutBtn: !!checkoutBtn,
+      loginBtn: !!loginBtn,
+      closeLoginBtn: !!closeLoginBtn,
+      submitLoginBtn: !!submitLoginBtn
+    });
+
+    // Render products with error handling
+    function renderProducts() {
+      console.log("Rendering products...");
+      productList.innerHTML = "";
+      products.forEach(product => {
+        try {
+          const productCard = document.createElement("div");
+          productCard.className = "bg-white p-4 rounded-lg shadow";
+          productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" class="w-full h-40 object-cover rounded" onerror="this.src='https://via.placeholder.com/150?text=${product.name}'">
+            <h3 class="text-lg font-semibold mt-2">${product.name}</h3>
+            <p class="text-gray-600">₹${product.price}</p>
+            <button onclick="addToCart(${product.id})" class="bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          `;
+          productList.appendChild(productCard);
+          console.log(`Rendered product: ${product.name}`);
+        } catch (error) {
+          console.error(`Failed to render product ${product.name}:`, error);
+        }
+      });
+    }
+
+    // Add to cart
+    function addToCart(productId) {
+      console.log("Adding to cart, product ID:", productId);
+      const product = products.find(p => p.id === productId);
+      if (!product) {
+        console.error("Product not found:", productId);
+        return;
+      }
+      const cartItem = cart.find(item => item.id === productId);
+      if (cartItem) {
+        cartItem.quantity++;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+      updateCart();
+    }
+
+    // Update cart UI
+    function updateCart() {
+      console.log("Updating cart...");
+      cartItems.innerHTML = "";
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+        const cartItem = document.createElement("div");
+        cartItem.className = "flex justify-between mb-2";
+        cartItem.innerHTML = `
+          <span>${item.name} (x${item.quantity})</span>
+          <span>₹${item.price * item.quantity}</span>
+        `;
+        cartItems.appendChild(cartItem);
+      });
+      cartTotal.textContent = `Total: ₹${total}`;
+      cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+      console.log("Cart updated:", cart);
+    }
+
+    // Show/hide cart modal
+    if (viewCartBtn) {
+      viewCartBtn.addEventListener("click", () => {
+        console.log("Opening cart modal");
+        cartModal.classList.remove("hidden");
+      });
+    } else {
+      console.error("viewCartBtn not found");
+    }
+
+    if (closeCartBtn) {
+      closeCartBtn.addEventListener("click", () => {
+        console.log("Closing cart modal");
+        cartModal.classList.add("hidden");
+      });
+    } else {
+      console.error("closeCartBtn not found");
+    }
+
+    // Checkout
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener("click", () => {
+        console.log("Checkout clicked, isLoggedIn:", isLoggedIn);
+        if (!isLoggedIn) {
+          alert("Please login to proceed with checkout.");
+          cartModal.classList.add("hidden");
+          loginModal.classList.remove("hidden");
+        } else if (cart.length === 0) {
+          alert("Your cart is empty!");
+        } else {
+          alert("Order placed successfully!");
+          cart = [];
+          updateCart();
+          cartModal.classList.add("hidden");
+        }
+      });
+    } else {
+      console.error("checkoutBtn not found");
+    }
+
+    // Login modal
+    if (loginBtn) {
+      loginBtn.addEventListener("click", () => {
+        console.log("Login button clicked, isLoggedIn:", isLoggedIn);
+        if (isLoggedIn) {
+          isLoggedIn = false;
+          loginBtn.textContent = "Login";
+          alert("Logged out successfully!");
+        } else {
+          loginModal.classList.remove("hidden");
+        }
+      });
+    } else {
+      console.error("loginBtn not found");
+    }
+
+    if (closeLoginBtn) {
+      closeLoginBtn.addEventListener("click", () => {
+        console.log("Closing login modal");
+        loginModal.classList.add("hidden");
+      });
+    } else {
+      console.error("closeLoginBtn not found");
+    }
+
+    if (submitLoginBtn) {
+      submitLoginBtn.addEventListener("click", () => {
+        console.log("Submit login clicked");
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        if (username && password) {
+          isLoggedIn = true;
+          loginBtn.textContent = "Logout";
+          loginModal.classList.add("hidden");
+          alert("Logged in successfully!");
+        } else {
+          alert("Please enter username and password.");
+        }
+      });
+    } else {
+      console.error("submitLoginBtn not found");
+    }
+
+    // Initialize
+    try {
+      console.log("Initializing app...");
+      renderProducts();
+    } catch (error) {
+      console.error("Failed to initialize product rendering:", error);
+      productList.innerHTML = "<p class='text-red-500'>Error loading products. Please try refreshing the page.</p>";
+    }
+  </script>
+</body>
+</html>
