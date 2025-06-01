@@ -9,8 +9,7 @@
         /* Custom styles for Arshad Kirana Store */
         .hero-bg {
                   .font-heading {
-            font-family: 'Poppins', sans-serif;
-        }
+            }
         .font-body {
             font-family: 'Roboto', sans-serif;
         }
