@@ -7,9 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Canva-inspired styles */
-        html {
-            scroll-behavior: smooth;
-        }
         .hero-bg {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1516321310764-0f0f9b3c5b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
         }
@@ -168,6 +165,7 @@
     </footer>
 
     <script>
+        // Form submission handler
         function submitForm() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
@@ -181,6 +179,21 @@
                 alert('Please fill in all fields.');
             }
         }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 64, // Adjust for fixed navbar height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
