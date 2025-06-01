@@ -1,25 +1,44 @@
-site:
-  title: Arshad Kirana Store
-  description: Your one-stop shop for quality groceries and essentials in Khiriband, Bhagalpur.
-  url: https://www.arshadkiranastore.com
-  email: mdsahir255@gmail.com
-  phone: +91 7479961459
-  address: Khiriband, Bhagalpur 812005, India
-theme:
-  # Theme settings can be added here if needed (e.g., colors, fonts)
-pages:
-  - name: Home
-    id: home
-    description: Welcome section with a hero image and call-to-action for shopping
-  - name: Services
-    id: services
-    description: Offering quality grocery products, fast delivery, and dedicated customer support
-  - name: Testimonials
-    id: testimonials
-    description: Customer reviews and feedback from Ravi, Md Sarik, and others
-  - name: Contact
-    id: contact
-    description: Contact form, store address, phone, and email details
-images:
-  hero_background: https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80
-  promo_image: https://images.unsplash.com/photo-1542838132-92c53300491f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80
+<!-- index.html (Home Page) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arshad Kirana Store</title>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section id="home">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Hero Background">
+    <h1>Welcome to Arshad Kirana Store</h1>
+    <button id="shop-now-btn">Shop Now</button>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p>Address: Khiriband, Bhagalpur 812005, India</p>
+    <p>Phone: +91 7479961459</p>
+    <p>Email: mdsahir255@gmail.com</p>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <h2>Customer Reviews</h2>
+    <div id="testimonial-carousel">
+      <div class="testimonial">Ravi: "Great quality products!"</div>
+      <div class="testimonial">Md Sarik: "Fast delivery, amazing service!"</div>
+      <!-- Add more testimonials as needed -->
+    </div>
+    <button id="prev-testimonial">Previous</button>
+    <button id="next-testimonial">Next</button>
+  </section>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
