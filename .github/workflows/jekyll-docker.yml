@@ -16,8 +16,7 @@
         }
         /* Ensure images are responsive and fit properly */
         .service-img {
-            object-fit: contain;
-            max-width: 100%;
+                      max-width: 100%;
         }
         /* Contact button styles */
         .contact-button {
