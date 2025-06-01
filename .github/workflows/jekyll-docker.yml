@@ -8,9 +8,7 @@
     <style>
         /* Custom styles for Arshad Kirana Store */
         .hero-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1516321310764-0f0f9b3c5b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-        }
-        .font-heading {
+                  .font-heading {
             font-family: 'Poppins', sans-serif;
         }
         .font-body {
