@@ -1,7 +1,7 @@
 site:
   title: Arshad Kirana Store
   description: Your one-stop shop for quality groceries and essentials in Khiriband, Bhagalpur.
-  url: https://your-site-name.netlify.app
+  url: https://arshad-kirana-store.netlify.app # Updated placeholder to a more specific example
   email: mdsahir255@gmail.com
   phone: +91 7479961459
   address: Khiriband, Bhagalpur 812005, India
@@ -17,17 +17,17 @@ theme:
 pages:
   - name: Home
     id: home
-    description: Welcome section with a call-to-action
+    description: Welcome section with a hero image and call-to-action for shopping
   - name: Services
     id: services
-    description: Quality products, fast delivery, customer support
+    description: Offering quality grocery products, fast delivery, and dedicated customer support
   - name: Testimonials
     id: testimonials
-    description: Customer reviews from Ravi and Md Sarik
+    description: Customer reviews and feedback from Ravi, Md Sarik, and others
   - name: Contact
     id: contact
-    description: Contact form and store details
+    description: Contact form, store address, phone, and email details
 
 images:
   hero_background: https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80
-  promo_image: https://export-download.canva.com/SMZJE/DAGpF7SMZJE/2/0/0001-1816543943321826787.png
+  promo_image: https://images.unsplash.com/photo-1542838132-92c53300491f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80 # Replaced invalid Canva URL with a placeholder grocery-related image
