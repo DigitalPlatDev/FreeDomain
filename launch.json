@@ -1,0 +1,439 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">MyBrand</h1>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Welcome to MyBrand</h2>
+            <p>Build your dream website with ease.</p>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 MyBrand. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page | MyBrand</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">MyBrand</div>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text animate-fade-in">
+            <h1>Welcome to MyBrand</h1>
+            <p>Your one-stop solution for modern web design and development.</p>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="animate-slide-up">Why Choose Us?</h2>
+        <div class="feature-cards">
+            <div class="card animate-fade-in">
+                <h3>Fast</h3>
+                <p>Lightning-fast load times and high performance.</p>
+            </div>
+            <div class="card animate-fade-in delay-1">
+                <h3>Responsive</h3>
+                <p>Mobile-friendly layouts for every screen size.</p>
+            </div>
+            <div class="card animate-fade-in delay-2">
+                <h3>Customizable</h3>
+                <p>Tailor-made solutions that fit your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form animate-slide-up">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 MyBrand. Crafted with 💙</p>
+    </footer>
+
+</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page | MyBrand</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">MyBrand</div>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text animate-fade-in">
+            <h1>Welcome to MyBrand</h1>
+            <p>Your one-stop solution for modern web design and development.</p>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="animate-slide-up">Why Choose Us?</h2>
+        <div class="feature-cards">
+            <div class="card animate-fade-in">
+                <h3>Fast</h3>
+                <p>Lightning-fast load times and high performance.</p>
+            </div>
+            <div class="card animate-fade-in delay-1">
+                <h3>Responsive</h3>
+                <p>Mobile-friendly layouts for every screen size.</p>
+            </div>
+            <div class="card animate-fade-in delay-2">
+                <h3>Customizable</h3>
+                <p>Tailor-made solutions that fit your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form animate-slide-up">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 MyBrand. Crafted with 💙</p>
+    </footer>
+
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page | MyBrand</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">MyBrand</div>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text animate-fade-in">
+            <h1>Welcome to MyBrand</h1>
+            <p>Your one-stop solution for modern web design and development.</p>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="animate-slide-up">Why Choose Us?</h2>
+        <div class="feature-cards">
+            <div class="card animate-fade-in">
+                <h3>Fast</h3>
+                <p>Lightning-fast load times and high performance.</p>
+            </div>
+            <div class="card animate-fade-in delay-1">
+                <h3>Responsive</h3>
+                <p>Mobile-friendly layouts for every screen size.</p>
+            </div>
+            <div class="card animate-fade-in delay-2">
+                <h3>Customizable</h3>
+                <p>Tailor-made solutions that fit your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form animate-slide-up">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 MyBrand. Crafted with 💙</p>
+    </footer>
+
+</body> <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page | MyBrand</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">MyBrand</div>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text animate-fade-in">
+            <h1>Welcome to MyBrand</h1>
+            <p>Your one-stop solution for modern web design and development.</p>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="animate-slide-up">Why Choose Us?</h2>
+        <div class="feature-cards">
+            <div class="card animate-fade-in">
+                <h3>Fast</h3>
+                <p>Lightning-fast load times and high performance.</p>
+            </div>
+            <div class="card animate-fade-in delay-1">
+                <h3>Responsive</h3>
+                <p>Mobile-friendly layouts for every screen size.</p>
+            </div>
+            <div class="card animate-fade-in delay-2">
+                <h3>Customizable</h3>
+                <p>Tailor-made solutions that fit your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form animate-slide-up">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 MyBrand. Crafted with 💙</p>
+    </footer>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Landing Page | MyBrand</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    
+        <!-- Header -->
+        <header>
+            <nav class="navbar">
+                <div class="logo">MyBrand</div>
+                <ul class="nav-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-text animate-fade-in">
+                <h1>Welcome to MyBrand</h1>
+                <p>Your one-stop solution for modern web design and development.</p>
+                <a href="#" class="btn">Get Started</a>
+            </div>
+        </section>
+    
+        <!-- Features Section -->
+        <section class="features">
+            <h2 class="animate-slide-up">Why Choose Us?</h2>
+            <div class="feature-cards">
+                <div class="card animate-fade-in">
+                    <h3>Fast</h3>
+                    <p>Lightning-fast load times and high performance.</p>
+                </div>
+                <div class="card animate-fade-in delay-1">
+                    <h3>Responsive</h3>
+                    <p>Mobile-friendly layouts for every screen size.</p>
+                </div>
+                <div class="card animate-fade-in delay-2">
+                    <h3>Customizable</h3>
+                    <p>Tailor-made solutions that fit your needs.</p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <h2>Contact Us</h2>
+            <form class="contact-form animate-slide-up">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 MyBrand. Crafted with 💙</p>
+        </footer>
+    
+    </body>
+    </html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Landing Page | MyBrand</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    
+        <!-- Header -->
+        <header>
+            <nav class="navbar">
+                <div class="logo">MyBrand</div>
+                <ul class="nav-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-text animate-fade-in">
+                <h1>Welcome to MyBrand</h1>
+                <p>Your one-stop solution for modern web design and development.</p>
+                <a href="#" class="btn">Get Started</a>
+            </div>
+        </section>
+    
+        <!-- Features Section -->
+        <section class="features">
+            <h2 class="animate-slide-up">Why Choose Us?</h2>
+            <div class="feature-cards">
+                <div class="card animate-fade-in">
+                    <h3>Fast</h3>
+                    <p>Lightning-fast load times and high performance.</p>
+                </div>
+                <div class="card animate-fade-in delay-1">
+                    <h3>Responsive</h3>
+                    <p>Mobile-friendly layouts for every screen size.</p>
+                </div>
+                <div class="card animate-fade-in delay-2">
+                    <h3>Customizable</h3>
+                    <p>Tailor-made solutions that fit your needs.</p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <h2>Contact Us</h2>
+            <form class="contact-form animate-slide-up">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 MyBrand. Crafted with 💙</p>
+        </footer>
+    
+    </body>
+    </html>
+        
