@@ -209,7 +209,7 @@
                     document.getElementById('emailError').innerText = 'Email is too long.';
                     isValid = false;
                 } else if (emailInput.value.endsWith('@gmail.com') && !emailRegex.test(emailInput.value)) {
-                    document.getElementById('emailError').innerText = 'Gmail addresses cannot contain "." or "+" symbols before the "@". Please remove these symbols.';
+                    document.getElementById('emailError').innerText = 'Gmail addresses cannot contain "." or "+" symbols before the "@". Please remove these symbols. Gmail treats john.doe@gmail.com or john+doe@gmail.com as aliases of johndoe@gmail.com';
                     isValid = false;
                 } else {
                     document.getElementById('emailError').innerText = '';
