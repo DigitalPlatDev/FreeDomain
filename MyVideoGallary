@@ -1,0 +1,10 @@
+{
+  "description": "My video website project",
+  "repo": "Femizysilver/MyYouTubeText-Gallary",
+  "owner": {
+    "username": "femizysilver"
+  },
+  "record": {
+    "CNAME": "femizysilver.github.io"
+  }
+}
