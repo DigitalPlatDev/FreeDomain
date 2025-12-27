@@ -1,0 +1,15 @@
+# Cloudflare Pages 배포 설정
+# 제작: 아백 (아로스)
+# 생성일: 2025-12-27
+
+name = "freedomainchoi"
+compatibility_date = "2025-12-27"
+
+[assets]
+directory = "."
+html_handling = "auto-trailing-slash"
+
+# 404 페이지 설정
+[[assets.fallback_routes]]
+pattern = "/*"
+destination = "/index.html"
