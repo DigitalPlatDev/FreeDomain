@@ -1,161 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpeg" href="/static/img/logo.jpg">
-    <title>DigitalPlat FreeDomain - Register</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Cloudflare Turnstile -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?compat=recaptcha" async defer></script>
-    
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #edf2f7;
-            padding: 0;
-            margin: 0;
-        }
-        .container {
-            width: 100%;
-            max-width: 400px;
-            margin: 5% auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #ffffff;
-            border-radius: 12px 12px 0 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .logo img {
-            width: 80px; /* Adjusted size */
-            height: auto;
-            border-radius: 50%; /* Circular border */
-        }
-        .title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-left: 20px;
-            color: #1a202c;
-        }
-        .google-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-weight: 500;
-            background-color: #e2e8f0; /* Subtle background */
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-        }
-        .google-button:hover {
-            background-color: #cbd5e0;
-        }
-        .footer {
-            background-color: #1a202c;
-            color: #cbd5e0;
-            padding: 20px;
-            font-size: 14px;
-            border-radius: 0 0 12px 12px;
-        }
-        footer a {
-            color: #63b3ed;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DigitalPlat FreeDomain - Register</title>
+<link rel="icon" type="image/jpeg" href="/static/img/logo.jpg">
+{% include "ga.html" %}
+<script src="https://cdn.tailwindcss.com"></script>
+{% include "partials/modern_styles.html" %}
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?compat=recaptcha" async defer></script>
 </head>
-<body>
-    <div class="header">
-        <div class="logo">
-            <img src="/static/img/logo.jpg" alt="DigitalPlat Domain Registry and Management Authority">
+<body class="bg-slate-50 text-slate-900">
+<div class="page-shell">
+    <header class="page-header">
+        <div class="max-w-4xl mx-auto px-6 py-6 flex items-center gap-4">
+            <img src="/static/img/logo.jpg" alt="DigitalPlat Logo" class="brand-mark">
+            <div>
+                <p class="text-xs uppercase tracking-[0.3em] text-slate-400">Create an account</p>
+                <h1 class="text-2xl font-semibold">DigitalPlat Domain Registry</h1>
+                <p class="text-sm text-slate-500">Register once and manage all your free domains.</p>
+            </div>
         </div>
-        <div class="title">DigitalPlat Domain Registry and Management Authority</div>
-    </div>
-    <div class="container mx-auto px-4">
-        <form id="registerForm" action="/auth/register" method="POST">
-            <div class="mb-4">
-                <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
-                <input type="text" name="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" placeholder="Username" required>
-                <small id="usernameError" class="text-red-500"></small>
-            </div>
-            <div class="mb-4">
-                <label for="fullname" class="block text-gray-700 text-sm font-bold mb-2">Legal full name</label>
-                <small class="text-gray-600">Once registered, the legal full name cannot be edited! Please ensure it matches the name on the KYC documents you upload after registration, otherwise, KYC verification will fail!</small>
-                <input type="text" name="fullname" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fullname" placeholder="Your Name" required>
-                <small id="fullnameError" class="text-red-500"></small>
-            </div>
-            <div class="mb-4">
-                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">E-Mail</label>
-                <small class="text-gray-600"><b>WARNING:</b> Starting from October 22, 2024, if your email domain is on the following list, you can continue using GitHub's free KYC option. The approved domains are:
+    </header>
 
-                    gmail.com,  
-                    zoho.com,  
-                    outlook.com,  
-                    yahoo.com,  
-                    yandex.com,  
-                    hotmail.com,  
-                    icloud.com,  
-                    163.com,  
-                    126.com,  
-                    qq.com,
-                    <b>To use our services for free and prevent misuse, please try to use email addresses with these domains.</b>
-                </small>
-                <input type="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" placeholder="example@nic.us.kg" required>
-                <small id="emailError" class="text-red-500"></small>
+    <main class="flex-1">
+        <div class="max-w-2xl mx-auto px-6 py-10">
+            <div class="card p-8 space-y-8">
+                <div>
+                    <h2 class="text-xl font-semibold text-slate-900">Create your free domain account</h2>
+                    <p class="text-sm text-slate-500 mt-2">Please ensure all information is genuine. Only one account per person or organization.</p>
+                </div>
+
+                <form id="registerForm" action="/auth/register" method="POST" class="space-y-6">
+                    <div class="grid gap-5">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Username</label>
+                            <input type="text" name="username" id="username" placeholder="Username" required class="input-field">
+                            <small id="usernameError" class="text-red-500"></small>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Full Name</label>
+                            <p class="text-xs text-slate-500 mb-2">Your full legal name, you can't edit after registration.</p>
+                            <input type="text" name="fullname" id="fullname" placeholder="Your Name" required class="input-field">
+                            <small id="fullnameError" class="text-red-500"></small>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Email</label>
+                            <input type="email" name="email" id="email" placeholder="example@nic.us.kg" required class="input-field">
+                            <small id="emailError" class="text-red-500"></small>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Phone</label>
+                            <p class="text-xs text-slate-500 mb-2">Format: +1-3100000000</p>
+                            <input type="text" name="phone" id="phone" placeholder="+X-XXXXXXXXXX" required class="input-field">
+                            <small id="phoneError" class="text-red-500"></small>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Full Address</label>
+                            <textarea name="address" id="address" placeholder="1000 Santa Monica Blvd, Santa Monica, CA 90401" required class="input-field"></textarea>
+                            <small id="addressError" class="text-red-500"></small>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Password" required class="input-field">
+                            <small id="passwordHelp" class="text-slate-500 block mt-2"></small>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Confirm Password</label>
+                            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required class="input-field">
+                            <small id="confirmPasswordError" class="text-red-500"></small>
+                        </div>
+                    </div>
+
+                    <div class="g-recaptcha mb-2" data-sitekey="{{ sitekey }}"></div>
+
+                    <button type="submit" id="registerButton" class="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed" disabled>Register</button>
+                </form>
             </div>
-            <div class="mb-4">
-                <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone (format: +1-3100000000)</label>
-                <small class="text-gray-600">Please make sure your phone number is correct, we may contact you via SMS</small>
-                <input type="text" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" placeholder="+X-XXXXXXXXXX" required>
-                <small id="phoneError" class="text-red-500"></small>
-            </div>
-            <div class="mb-4">
-                <label for="address" class="block text-gray-700 text-sm font-bold mb-2">Full Address</label>
-                <textarea id="address" name="address" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="1000 Santa Monica Blvd, Santa Monica, CA 90401, United States" required></textarea>
-                <small id="addressError" class="text-red-500"></small>
-            </div>
-            <div class="mb-4">
-                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                <input type="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" placeholder="Password" autocomplete="off" required>
-                <small id="passwordHelp" class="form-text text-gray-600">The password must be more than 8 characters long and include uppercase and lowercase letters as well as numbers. It must not include &, *, ', ", <, >, \, /, or spaces.</small>
-            </div>
-            <div class="mb-4">
-                <label for="confirmPassword" class="block text-gray-700 text-sm font-bold mb-2">Confirm Password</label>
-                <input type="password" name="confirmPassword" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="confirmPassword" placeholder="Confirm Password" autocomplete="off" required>
-                <small id="confirmPasswordError" class="text-red-500"></small>
-            </div>
-            <!-- Cloudflare Turnstile Google reCAPTCHA -->
-            <div class="g-recaptcha mb-4" data-sitekey="{{ sitekey }}"></div>
-            <small class="text-gray-600">Please ensure that the information provided is genuine and valid. Each individual/organization is strictly limited to a maximum of one account.</small>
-            <div class="operation flex justify-center mt-4">
-                <button type="submit" id="registerButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" disabled>Register!</button>
-            </div>
-        </form>        
-    </div>
-    <footer class="footer">
-        <div class="text-center">
-            <small>
-                By continuing you agree to our <a href="https://nic.us.kg/terms-of-service/">Terms of Service</a>, <a href="https://nic.us.kg/privacy-policy/">Privacy Policy</a>, and <a href="https://nic.us.kg/acceptable-use-policy/">Acceptable Use Policy</a>.<br>
-                If you encounter any problems, please create a new issue: <a href="https://github.com/DigitalPlatDev/US.KG-Issues/issues/new/choose">Issue Report</a><br>
-            </small>
         </div>
+    </main>
+
+    <footer class="text-center text-sm text-slate-400 py-8">
+        By continuing you agree to our
+        <a href="https://domain.digitalplat.org/terms-of-service/" class="text-slate-600 hover:text-slate-900">Terms of Service</a>,
+        <a href="https://domain.digitalplat.org/privacy-policy/" class="text-slate-600 hover:text-slate-900">Privacy Policy</a>, and
+        <a href="https://domain.digitalplat.org/acceptable-use-policy/" class="text-slate-600 hover:text-slate-900">Acceptable Use Policy</a>.
+        <br>
+        Problems? <a href="https://github.com/DigitalPlatDev/US.KG-Issues/issues/new/choose" class="text-slate-600 hover:text-slate-900">Submit an issue</a>.
     </footer>
+</div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const usernameInput = document.getElementById('username');
@@ -204,12 +143,8 @@
                 }
 
                 // Validate Email
-                const emailRegex = /^[^.+]*@gmail\.com$/;
                 if (emailInput.value.length > 50) {
                     document.getElementById('emailError').innerText = 'Email is too long.';
-                    isValid = false;
-                } else if (emailInput.value.endsWith('@gmail.com') && !emailRegex.test(emailInput.value)) {
-                    document.getElementById('emailError').innerText = 'Gmail addresses cannot contain "." or "+" symbols before the "@". Please remove these symbols.';
                     isValid = false;
                 } else {
                     document.getElementById('emailError').innerText = '';
@@ -246,11 +181,11 @@
                     { regex: /[A-Z]/, message: 'an uppercase letter' },
                     { regex: /[a-z]/, message: 'a lowercase letter' },
                     { regex: /\d/, message: 'a number' },
-                    { regex: /^[^\&\*\''\"<>\\\\/\s]*$/, message: 'must not include &, *, \', ", <, >, \, /, or spaces' }
+                    { regex: /^[^\&\*''\"<>\\/\s]*$/, message: 'must not include &, *, \' , ", <, >, \\, /, or spaces' }
                 ];
                 const unmetRequirements = passwordRequirements.filter(req => !req.regex.test(passwordInput.value));
                 if (unmetRequirements.length === 0) {
-                    document.getElementById('passwordHelp').innerHTML = '<span class="text-green-500">Password meets all requirements</span>';
+                    document.getElementById('passwordHelp').innerHTML = '<span class="text-emerald-500">Password meets all requirements</span>';
                 } else {
                     const messages = unmetRequirements.map(req => req.message).join(', ');
                     document.getElementById('passwordHelp').innerHTML = `<span class="text-red-500">Password ${messages}</span>`;
@@ -274,14 +209,6 @@
             }
         });
     </script>
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script>
-        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8599203929590914" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -5,220 +5,255 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Manage Your Domain: {{domain_name}}</title>
+    {% include "ga.html" %}
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f1f3f4;
-            display: flex;
-            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-btn {
+            background-color: #f1f5f9;
+            color: #475569;
+            padding: 0.55rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-flex;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
+            gap: 0.35rem;
         }
-
-        .container {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+        .tab-btn:hover {
+            background-color: #e2e8f0;
+            color: #0f172a;
+        }
+        .active-tab {
+            background-color: #0f172a;
+            color: #ffffff;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+        }
+        .input-field {
             width: 100%;
-            max-width: 900px;
-            margin: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            padding: 0.6rem 0.9rem;
+            font-size: 0.95rem;
+            color: #0f172a;
+            background-color: #ffffff;
         }
-
-        .nav-tabs .nav-link.active {
-            background-color: #1a73e8;
+        .input-field:focus {
+            outline: none;
+            border-color: #94a3b8;
+            box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.25);
+        }
+        .btn-primary {
+            background-color: #0f172a;
             color: #ffffff;
+            border-radius: 12px;
+            padding: 0.6rem 1.25rem;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
         }
-
-        .nav-tabs .nav-link {
-            border-radius: 8px;
-            margin-bottom: 10px;
-            font-weight: 500;
-            font-size: 1rem;
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.24);
         }
-
-        .tab-content {
-            padding: 20px;
-            background-color: #f1f3f4;
-            border-radius: 8px;
-            margin-left: 20px;
-            flex-grow: 1;
+        .btn-outline {
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 0.55rem 1.25rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
         }
-
-        .btn {
-            background-color: #1a73e8;
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: background-color 0.3s;
+        .btn-outline:hover {
+            border-color: #94a3b8;
+            background: #f8fafc;
         }
-
-        .btn:hover {
-            background-color: #185abc;
-        }
-
-        .btn-warning {
-            background-color: #fbbc04;
-            color: #ffffff;
-        }
-
-        .btn-warning:hover {
-            background-color: #e37400;
-        }
-
-        .btn-danger {
-            background-color: #ea4335;
-            color: #ffffff;
-        }
-
-        .btn-danger:hover {
-            background-color: #c5221f;
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.2rem 0.6rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <div class="text-center mb-6">
-            <h1 class="text-2xl font-semibold text-gray-900">Manage Your Domain: {{domain_name}}</h1>
-        </div>
-        <div class="bg-blue-100 text-gray-900 p-4 rounded-lg mb-6">
-            <h3 class="font-medium">Your Domain Information:</h3>
-            <ul class="list-disc pl-6 mt-2 space-y-2">
-                <li><strong>Name:</strong> {{domain_name}}</li>
-                <li><strong>Administrator:</strong> {{fullname}} ({{username}})</li>
-                <li><strong>Renew:</strong> Always Free, renewal for the next year if there's less than 180 days left until expiry</li>
-                <li><strong>Registration Date:</strong> {{regdate_show}}</li>
-                <li><strong>Expire Date:</strong> {{expdate_show}}</li>
-            </ul>
-        </div>
-        <div class="d-flex">
-            <ul class="nav flex-column nav-tabs" id="myTab" role="tablist" style="width: 180px;">
-                <li class="nav-item">
-                    <a class="nav-link active" id="ns-records-tab" data-toggle="tab" href="#ns-records" role="tab" aria-controls="ns-records" aria-selected="true">NS Records</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="renew-tab" data-toggle="tab" href="#renew" role="tab" aria-controls="renew" aria-selected="false">Renew</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="whois-privacy-tab" data-toggle="tab" href="#whois-privacy" role="tab" aria-controls="whois-privacy" aria-selected="false">WHOIS Privacy Protection</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="cancel-domain-tab" data-toggle="tab" href="#cancel-domain" role="tab" aria-controls="cancel-domain" aria-selected="false">Cancel This Domain</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="ns-records" role="tabpanel" aria-labelledby="ns-records-tab">
-                    <p>The DNS server needs to be valid for the resolution to take effect and display correctly; otherwise, it will remain blank. Please allow up to several minutes for the NS records to update and appear after submission.</p>
-                    <form action="/panel/nameserver/update" method="GET">
-                        <div class="form-group">
-                            <label for="ns1"><span class="text-red-500">*</span> Name Server 1</label>
-                            <input type="text" name="ns1" id="ns1" value="{{ns1}}" placeholder="NS1" required class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="ns2"><span class="text-red-500">*</span> Name Server 2</label>
-                            <input type="text" name="ns2" id="ns2" value="{{ns2}}" placeholder="NS2" required class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="ns3">Name Server 3</label>
-                            <input type="text" name="ns3" id="ns3" value="{{ns3}}" placeholder="NS3" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="ns4">Name Server 4</label>
-                            <input type="text" name="ns4" id="ns4" value="{{ns4}}" placeholder="NS4" class="form-control">
-                        </div>
-                        <input type="hidden" name="name" value="{{domain_name}}">
-                        <button type="submit" class="btn">Update</button>
-                    </form>
+<body class="bg-slate-50 min-h-screen text-slate-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col gap-6">
+            <header class="card px-6 py-6 md:px-10 md:py-8">
+                <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                    <div>
+                        <p class="text-xs uppercase tracking-[0.3em] text-slate-400">Domain Management</p>
+                        <h1 class="text-2xl md:text-3xl font-semibold text-slate-900">Manage {{domain_name}}</h1>
+                        <p class="text-sm text-slate-500 mt-2">Update nameservers, renew your domain, and control WHOIS privacy.</p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <span class="badge bg-slate-100 text-slate-600">Owner: {{fullname}}</span>
+                        <span class="badge bg-emerald-100 text-emerald-700">WHOIS Privacy Status: {{whois_protection_status}}</span>
+                    </div>
                 </div>
-                <div class="tab-pane fade" id="renew" role="tabpanel" aria-labelledby="renew-tab">
-                    <form action="/panel/renew/update" method="GET" target="_blank" class="mt-4">
-                        <input type="hidden" name="name" value="{{domain_name}}">
-                        <button type="submit" class="btn">Renew (if there's less than 180 days left until expiry)</button>
-                    </form>
-                </div>
-                <div class="tab-pane fade" id="whois-privacy" role="tabpanel" aria-labelledby="whois-privacy-tab">
-                    <p>WHOIS Privacy Protection is a service to protect your personal information from being publicly available through the WHOIS database. If you enable this service, your information won't be accessible through WHOIS queries.</p>
-                    <h5 class="mt-2">Current Status: <span class="badge text-bg-{{whois_protection_badge}}">{{whois_protection_status}}</span></h5>
-                    <form action="/panel/manager/enable_whois_protection" method="GET" target="_blank" class="mt-4">
-                        <input type="hidden" name="domain" value="{{domain_name}}">
-                        <button type="submit" class="btn btn-warning">Enable (After enabling, your information won't be accessible through WHOIS queries)</button>
-                    </form>
-                    <form action="/panel/manager/disable_whois_protection" method="GET" target="_blank" class="mt-4">
-                        <input type="hidden" name="domain" value="{{domain_name}}">
-                        <button type="submit" class="btn btn-warning">Disable WHOIS Protection</button>
-                    </form>
-                </div>
-                <div class="tab-pane fade" id="cancel-domain" role="tabpanel" aria-labelledby="cancel-domain-tab">
-                    <p>To free up unused domain names, we're introducing a new feature: you can now cancel domain names that you no longer need (i.e., delete this domain). Once a domain is canceled, your registration limit will be reset, allowing you to register new domains. When you request a cancellation, your domain will be immediately removed from the DNS root. After the global DNS sync completes (typically within 5-30 minutes), the domain name will be available for registration by you or anyone else. Please note that once you cancel a domain name, you will lose all management rights to it. Once released, anyone can register the domain name. Proceed with caution, as we will not be able to help you retrieve the domain name once it is canceled.</p>
-                    <button type="button" class="btn btn-danger" onclick="showCancelModal()">Danger Zone: Cancel this domain</button>
+            </header>
 
-                    <!-- Cancel Domain Modal -->
-                    <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="cancelModalLabel">Confirm Domain Cancellation</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>To confirm the cancellation of the domain, please enter the domain name <strong>{{domain_name}}</strong> below:</p>
-                                    <input type="text" id="confirmDomainName" class="form-control" placeholder="Enter domain name">
-                                    <p class="mt-3 text-danger">Warning: This action is irreversible. Once canceled, the domain will be immediately available for registration by others.</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <form action="/panel/manager/cancel_domain" method="GET" id="cancelDomainForm" onsubmit="handleCancelDomainSubmit(event)">
-                                        <input type="hidden" name="domain" value="{{domain_name}}">
-                                        <button type="submit" class="btn btn-danger" id="confirmCancelBtn" disabled>Cancel Domain</button>
-                                    </form>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
+            <section class="grid gap-6 lg:grid-cols-[1.05fr_2fr]">
+                <div class="card p-6">
+                    <h2 class="text-lg font-semibold text-slate-900">Domain overview</h2>
+                    <p class="text-sm text-slate-500 mt-1">Quick access to registration details and timelines.</p>
+                    <dl class="mt-6 space-y-4 text-sm">
+                        <div>
+                            <dt class="text-slate-400">Domain</dt>
+                            <dd class="text-base font-semibold text-slate-900">{{domain_name}}</dd>
+                        </div>
+                        <div>
+                            <dt class="text-slate-400">Administrator</dt>
+                            <dd class="text-slate-700">{{fullname}} ({{username}})</dd>
+                        </div>
+                        <div>
+                            <dt class="text-slate-400">Registration date</dt>
+                            <dd class="text-slate-700">{{regdate_show}}</dd>
+                        </div>
+                        <div>
+                            <dt class="text-slate-400">Expiration date</dt>
+                            <dd class="text-slate-700">{{expdate_show}}</dd>
+                        </div>
+                        <div class="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-slate-600">
+                            Free renewals are available within 180 days of expiry. Use a key to extend early by 2 years.
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="card p-6 md:p-8">
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <button class="tab-btn active-tab" data-target="#ns-records">Nameservers</button>
+                        <button class="tab-btn" data-target="#renew">Renew</button>
+                        <button class="tab-btn" data-target="#whois-privacy">WHOIS Privacy</button>
+                    </div>
+
+                    <div id="ns-records" class="tab-content-box block">
+                        <p class="text-sm text-slate-500 mb-6">Changes may take a few minutes to propagate.</p>
+                        <form action="/panel/nameserver/update" method="GET" class="grid gap-4 md:grid-cols-2">
+                            <div>
+                                <label for="ns1" class="block text-xs uppercase tracking-wide text-slate-400 mb-2">* Name Server 1</label>
+                                <input type="text" name="ns1" id="ns1" value="{{ns1}}" required placeholder="NS1" class="input-field">
+                            </div>
+                            <div>
+                                <label for="ns2" class="block text-xs uppercase tracking-wide text-slate-400 mb-2">* Name Server 2</label>
+                                <input type="text" name="ns2" id="ns2" value="{{ns2}}" required placeholder="NS2" class="input-field">
+                            </div>
+                            <div>
+                                <label for="ns3" class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Name Server 3</label>
+                                <input type="text" name="ns3" id="ns3" value="{{ns3}}" placeholder="NS3" class="input-field">
+                            </div>
+                            <div>
+                                <label for="ns4" class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Name Server 4</label>
+                                <input type="text" name="ns4" id="ns4" value="{{ns4}}" placeholder="NS4" class="input-field">
+                            </div>
+                            <div>
+                                <label for="ns5" class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Name Server 5</label>
+                                <input type="text" name="ns5" id="ns5" value="{{ns5}}" placeholder="NS5" class="input-field">
+                            </div>
+                            <div>
+                                <label for="ns6" class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Name Server 6</label>
+                                <input type="text" name="ns6" id="ns6" value="{{ns6}}" placeholder="NS6" class="input-field">
+                            </div>
+                            <div>
+                                <label for="ns7" class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Name Server 7</label>
+                                <input type="text" name="ns7" id="ns7" value="{{ns7}}" placeholder="NS7" class="input-field">
+                            </div>
+                            <div>
+                                <label for="ns8" class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Name Server 8</label>
+                                <input type="text" name="ns8" id="ns8" value="{{ns8}}" placeholder="NS8" class="input-field">
+                            </div>
+                            <input type="hidden" name="name" value="{{domain_name}}">
+                            <div class="md:col-span-2 flex flex-wrap justify-between items-center gap-3 pt-2">
+                                <p class="text-xs text-slate-500">Use valid nameserver hostnames (e.g., ns1.provider.com).</p>
+                                <button type="submit" class="btn-primary">Update nameservers</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="renew" class="tab-content-box hidden">
+                        <div class="space-y-6">
+                            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                                <h3 class="text-sm font-semibold text-slate-800">Free renewal window</h3>
+                                <p class="text-sm text-slate-500 mt-1">Available when less than 180 days remain.</p>
+                                <form action="/panel/renew/update" method="GET" target="_blank" class="mt-4">
+                                    <input type="hidden" name="name" value="{{domain_name}}">
+                                    <button type="submit" class="btn-primary">Request free renewal</button>
+                                </form>
+                            </div>
+
+                            <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                                <h3 class="text-sm font-semibold text-slate-800">Renew early with a KYC key</h3>
+                                <p class="text-sm text-slate-500 mt-1">Each key adds 2 years of validity.</p>
+                                <form action="/panel/manual_renew" method="POST" class="mt-4 space-y-3">
+                                    <input type="hidden" name="domain" value="{{domain_name}}">
+                                    <label for="renewkey" class="block text-xs uppercase tracking-wide text-slate-400">KYC key</label>
+                                    <input type="text" id="renewkey" name="renewkey" class="input-field" placeholder="Enter your key" required>
+                                    <button type="submit" class="btn-outline">Manual renewal (+2 years)</button>
+                                </form>
+                                <p class="text-xs text-slate-500 mt-3">
+                                    Purchase keys at <a href="https://key.register.us.kg/" class="text-slate-900 underline">https://key.register.us.kg/</a>.
+                                </p>
                             </div>
                         </div>
                     </div>
 
+                    <div id="whois-privacy" class="tab-content-box hidden">
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                            <p class="text-sm text-slate-600">WHOIS Privacy hides your personal info in public WHOIS queries.</p>
+                            <div class="mt-4 flex flex-wrap items-center gap-3">
+                                <span class="text-sm font-semibold text-slate-700">Current status:</span>
+                                <span class="badge bg-emerald-100 text-emerald-700">{{whois_protection_status}}</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <form action="/panel/manager/enable_whois_protection" method="GET" target="_blank">
+                                <input type="hidden" name="domain" value="{{domain_name}}">
+                                <button type="submit" class="btn-primary">Enable privacy</button>
+                            </form>
+
+                            <form action="/panel/manager/disable_whois_protection" method="GET" target="_blank">
+                                <input type="hidden" name="domain" value="{{domain_name}}">
+                                <button type="submit" class="btn-outline">Disable privacy</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <script>
-        function showCancelModal() {
-            $('#cancelModal').modal('show');
-        }
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content-box');
 
-        document.getElementById('confirmDomainName').addEventListener('input', function () {
-            const confirmBtn = document.getElementById('confirmCancelBtn');
-            if (this.value === '{{domain_name}}') {
-                confirmBtn.removeAttribute('disabled');
-            } else {
-                confirmBtn.setAttribute('disabled', 'true');
-            }
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active-tab'));
+                tabContents.forEach(content => content.classList.add('hidden'));
+
+                button.classList.add('active-tab');
+                const target = document.querySelector(button.dataset.target);
+                target.classList.remove('hidden');
+                target.classList.add('block');
+            });
         });
-
-        function handleCancelDomainSubmit(event) {
-            event.preventDefault();
-            const confirmBtn = document.getElementById('confirmCancelBtn');
-            confirmBtn.setAttribute('disabled', 'true');
-            confirmBtn.textContent = 'Please wait...';
-            document.getElementById('cancelDomainForm').submit();
-        }
     </script>
 </body>
 

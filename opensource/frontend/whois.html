@@ -1,130 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>US.KG WHOIS Lookup</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #edf2f7;
-            padding: 0;
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        .container {
-            width: 100%;
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
-            transition: all 0.5s ease;
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #ffffff;
-            border-radius: 12px 12px 0 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .logo img {
-            width: 80px;
-            height: auto;
-            border-radius: 50%;
-        }
-        .title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1a202c;
-            margin-left: 20px;
-        }
-        .footer {
-            background-color: #1a202c;
-            color: #cbd5e0;
-            padding: 20px;
-            font-size: 14px;
-            border-radius: 0 0 12px 12px;
-            margin-top: auto;
-            text-align: center;
-        }
-        footer a {
-            color: #63b3ed;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        .input-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .input-group-prepend {
-            background-color: #edf2f7;
-            border: 1px solid #cbd5e0;
-            padding: 10px;
-            border-radius: 0 5px 5px 0;
-            color: #4a5568;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DigitalPlat FreeDomain WHOIS Lookup</title>
+{% include "ga.html" %}
+<script src="https://cdn.tailwindcss.com"></script>
+{% include "partials/modern_styles.html" %}
 </head>
-<body>
-    <nav class="bg-white shadow p-4">
-        <div class="container mx-auto">
-            <span class="text-lg font-semibold">US.KG WHOIS Lookup</span>
+<body class="bg-slate-50 text-slate-900">
+<div class="page-shell">
+    <header class="page-header">
+        <div class="max-w-4xl mx-auto px-6 py-6">
+            <p class="text-xs uppercase tracking-[0.3em] text-slate-400">WHOIS tools</p>
+            <h1 class="text-2xl font-semibold">WHOIS Lookup</h1>
+            <p class="text-sm text-slate-500 mt-2">Search for domain ownership and registration details.</p>
         </div>
-    </nav>
-    <div class="container">
-        <form action="/whois" method="GET">
-            <div class="input-group">
-                <input type="text" name="name" class="form-input block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border rounded-lg focus:outline-none focus:bg-white" id="name" placeholder="Domain name" required>
-                <div class="input-group-prepend">.us.kg</div>
+    </header>
+
+    <main class="flex-1">
+        <div class="max-w-3xl mx-auto px-6 py-10 space-y-6">
+            <div class="card p-6">
+                <form action="/whois" method="GET" class="space-y-5">
+                    <div>
+                        <label for="name" class="block text-xs uppercase tracking-wide text-slate-400 mb-2">Domain Name</label>
+                        <input type="text" id="name" name="name" placeholder="example.us.kg, foo.dpdns.org..." class="input-field" required>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="submit" class="btn-primary">Lookup</button>
+                    </div>
+                </form>
             </div>
-            <div class="flex justify-center">
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Lookup</button>
-            </div>
-        </form>
-    </div>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col">
-                <h5 class="text-xl font-semibold">Query WHOIS via command line (CLI)</h5>
-                <p class="text-gray-700 mt-3">When querying WHOIS via command line, even though US.KG adheres to the RFC 2782 WHOIS server lookup standard, many clients may not support or accept it. This is because, in most cases, you cannot directly query WHOIS by using 'whois example.us.kg'. We are currently working on or preparing to submit support for WHOIS server lookup to mainstream WHOIS clients (such as RFC 1036 WHOIS clients). Until WHOIS clients directly support it, please search for WHOIS information for US.KG domains by specifying the WHOIS server (for example, in RFC 1036 WHOIS clients, you can search by adding the '-h' parameter to specification the 'whois.us.kg' server, like this: 'whois -h whois.us.kg example.us.kg').</p>
-                <p class="mt-3"><code class="bg-gray-100 text-gray-800 px-2 py-1 rounded">whois -h whois.us.kg "domainname"</code></p>
+
+            <div class="card p-6">
+                <h2 class="text-lg font-semibold mb-3">Query WHOIS via Command Line (CLI)</h2>
+                <p class="text-slate-600">
+                    Although US.KG follows the RFC 2782 WHOIS server lookup standard, many clients may not yet support it.
+                    Queries like <code class="rounded bg-slate-100 px-2 py-1 text-sm">whois example.us.kg</code> may not work directly.
+                </p>
+                <p class="text-slate-600 mt-3">
+                    Until mainstream WHOIS clients support this, please manually specify the WHOIS server. For RFC 1036 clients, use the <code class="rounded bg-slate-100 px-2 py-1 text-sm">-h</code> flag like this:
+                </p>
+                <p class="bg-slate-100 text-slate-800 px-3 py-2 rounded-xl mt-3 font-mono text-sm">
+                    whois -h whois.digitalplat.org "domainname"
+                </p>
             </div>
         </div>
-    </div>
-    <footer class="footer mt-5">
-        <small>
-            Enter a domain name to query
-            <br>
-            If you encounter any problems, please create a new issue: <a href="https://github.com/DigitalPlatDev/US.KG-Issues/issues/new/choose" target="_blank">Issue Report</a><br>
-        </small>
-    </footer>
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script>
-        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
+    </main>
+</div>
 </body>
 </html>

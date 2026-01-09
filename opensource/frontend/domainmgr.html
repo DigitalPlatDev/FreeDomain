@@ -1,114 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>US.KG Domain Dashboard</title>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Domain Dashboard</title>
+  {% include "ga.html" %}
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f3f4f6;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .header {
-      background-color: #1f2937;
-      color: #ffffff;
-      padding: 20px;
-      text-align: center;
-    }
-    .container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+      font-family: 'Inter', sans-serif;
     }
     .card {
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
-      padding: 20px;
-      width: 100%;
-      max-width: 600px;
-    }
-    .card-header {
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .card-header h1 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #1a202c;
-    }
-    .list-group {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .list-group-item {
-      padding: 10px 15px;
+      background: #ffffff;
+      border-radius: 24px;
       border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .list-group-item a {
-      text-decoration: none;
-      color: #1a202c;
-      font-weight: 500;
-      display: block;
-    }
-    .list-group-item:hover {
-      background-color: #edf2f7;
-      color: #2d3748;
-    }
-    .footer {
-      background-color: #1f2937;
-      color: #ffffff;
-      text-align: center;
-      padding: 10px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
     }
   </style>
 </head>
-<body>
+<body class="bg-slate-50 min-h-screen flex flex-col text-slate-900">
+  <header class="bg-white text-slate-900 py-6 text-center border-b border-slate-200">
+    <h1 class="text-2xl font-semibold">Your domains</h1>
+    <p class="text-sm text-slate-500 mt-1">Manage and search through your registered domains.</p>
+  </header>
 
-  <div class="container">
-    <div class="card">
-      <div class="card-header">
-        <h1>Your Domains</h1>
+  <main class="flex-grow p-6">
+    <div class="max-w-5xl mx-auto card p-6 md:p-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <input
+          type="text"
+          id="searchInput"
+          class="w-full md:w-1/2 border border-slate-200 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-slate-200"
+          placeholder="Search domains"
+          oninput="filterDomains()"
+        />
+        <div class="flex items-center gap-3">
+          <label for="perPageSelect" class="text-sm text-slate-500">Per page:</label>
+          <select id="perPageSelect" class="border border-slate-200 rounded-lg px-2 py-1 text-sm" onchange="changeItemsPerPage()">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="500">500</option>
+          </select>
+          <div class="text-sm text-slate-500">
+            Showing <span id="domain-count">0</span> domains
+          </div>
+        </div>
       </div>
-      <ul class="list-group">
+
+      <ul id="domainList" class="space-y-2">
         {% for domain in domain_list %}
-          <li class="list-group-item">
-            <a href="/panel/manager/{{domain}}">{{domain}}</a>
+          <li class="domain-item">
+            <a href="/panel/manager/{{domain}}" class="block px-4 py-3 border border-slate-200 rounded-xl hover:bg-slate-50 font-medium text-slate-800 transition">
+              {{domain}}
+            </a>
           </li>
         {% endfor %}
       </ul>
+
+      <!-- Pagination -->
+      <div class="flex justify-center mt-6" id="pagination"></div>
     </div>
-  </div>
+  </main>
+
   <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
-<script>
-    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/speed-insights/script.js"></script>
+    let itemsPerPage = 10;
+    let currentPage = 1;
+    let allDomains = [];
+
+    function updateDomainCount() {
+      const visibleItems = document.querySelectorAll('.domain-item:not(.hidden)').length;
+      document.getElementById('domain-count').textContent = visibleItems;
+    }
+
+    function paginateDomains() {
+      const filtered = allDomains.filter(item => !item.classList.contains('hidden'));
+      const totalPages = Math.ceil(filtered.length / itemsPerPage);
+
+      filtered.forEach((item, index) => {
+        item.style.display = (index >= (currentPage - 1) * itemsPerPage && index < currentPage * itemsPerPage) ? '' : 'none';
+      });
+
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = '';
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.className = `mx-1 px-3 py-1 rounded-lg text-sm font-medium ${i === currentPage ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-600'} hover:bg-slate-200`;
+        btn.onclick = () => {
+          currentPage = i;
+          paginateDomains();
+        };
+        pagination.appendChild(btn);
+      }
+    }
+
+    function filterDomains() {
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      allDomains.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.classList.toggle('hidden', !text.includes(search));
+      });
+      currentPage = 1;
+      updateDomainCount();
+      paginateDomains();
+    }
+
+    function changeItemsPerPage() {
+      itemsPerPage = parseInt(document.getElementById('perPageSelect').value);
+      currentPage = 1;
+      paginateDomains();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      allDomains = Array.from(document.querySelectorAll('.domain-item'));
+      updateDomainCount();
+      paginateDomains();
+    });
+  </script>
 </body>
 </html>

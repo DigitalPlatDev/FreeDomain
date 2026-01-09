@@ -4,46 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/jpeg" href="/static/img/logo.jpg">
-    <title>DigitalPlat Domain Panel</title>
-    
+    <title>DigitalPlat Domain Dashboard</title>
+    {% include "ga.html" %}
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f3f4f6;
+        :root {
+            color-scheme: light;
+        }
+
+        html, body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
             display: flex;
-            min-height: 100vh;
             flex-direction: column;
+            min-height: 100vh;
+            overflow: auto;
+            scrollbar-width: none;
+            color: #0f172a;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
         }
         .sidebar {
-            width: 250px;
-            background-color: #111827;
-            color: #f9fafb;
-            padding: 20px;
+            width: 260px;
+            background-color: #ffffff;
+            color: #0f172a;
+            padding: 24px 16px;
             position: fixed;
             height: 100vh;
             transition: width 0.3s, transform 0.3s;
             overflow: hidden;
+            border-right: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
         }
         .sidebar.collapsed {
             width: 70px;
         }
         .sidebar a {
-            color: #9ca3af;
+            color: #475569;
             text-decoration: none;
-            padding: 10px;
+            padding: 10px 12px;
             display: flex;
             align-items: center;
-            border-radius: 0.375rem;
+            gap: 12px;
+            border-radius: 0.75rem;
             transition: background-color 0.3s, color 0.3s;
+            font-weight: 500;
         }
         .sidebar a i {
             width: 30px;
@@ -52,23 +68,25 @@
         .sidebar.collapsed a {
             justify-content: center;
         }
-        .sidebar.collapsed a:hover {
-            background-color: #1f2937;
-            color: #ffffff;
+        .sidebar a.active {
+            background-color: #f1f5f9;
+            color: #0f172a;
         }
         .sidebar a:hover {
-            background-color: #1f2937;
-            color: #ffffff;
+            background-color: #f1f5f9;
+            color: #0f172a;
         }
         .sidebar .brand-logo {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
-            gap: 15px;
+            gap: 12px;
         }
         .sidebar .brand-logo img {
-            border-radius: 50%;
-            width: 50px;
+            border-radius: 16px;
+            width: 44px;
+            height: 44px;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
         }
         .sidebar.collapsed .brand-logo {
             justify-content: center;
@@ -85,36 +103,43 @@
             padding: 10px 0;
             border: none;
             background: none;
-            color: #9ca3af;
+            color: #64748b;
             cursor: pointer;
             transition: color 0.3s;
             margin-bottom: 20px;
         }
         .collapse-btn:hover {
-            color: #ffffff;
+            color: #0f172a;
         }
         .main-content {
-            margin-left: 250px;
-            padding: 20px;
+            margin-left: 260px;
+            padding: 24px;
             flex-grow: 1;
             transition: margin-left 0.3s;
+            background-color: #f8fafc;
         }
         .main-content.expanded {
             margin-left: 70px;
         }
         .navbar {
             background-color: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 10px 20px;
+            border: 1px solid #e2e8f0;
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+            margin-bottom: 20px;
         }
         .navbar a {
-            color: #1f2937;
+            color: #334155;
             text-decoration: none;
-            margin-right: 20px;
+            margin-right: 18px;
             font-weight: 500;
+        }
+        .navbar a:hover {
+            color: #0f172a;
         }
         .navbar .dropdown-menu {
             background-color: #ffffff;
@@ -122,15 +147,20 @@
             border-radius: 0.375rem;
             padding: 10px;
         }
-        .footer {
-            background-color: #111827;
-            color: #f9fafb;
-            padding: 10px 20px;
-            text-align: center;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
+        .content-wrapper {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 16px 35px rgba(15, 23, 42, 0.06);
+            overflow: hidden;
         }
+        .content-wrapper iframe {
+            display: block;
+            width: 100%;
+            border: none;
+        }
+
+
         @media (max-width: 768px) {
             .sidebar {
                 width: 100%;
@@ -169,13 +199,25 @@
             transform: translate(-50%, -50%);
             border: 4px solid rgba(0, 0, 0, 0.1);
             border-radius: 50%;
-            border-top: 4px solid #3498db;
+            border-top: 4px solid #2563eb;
             width: 40px;
             height: 40px;
             -webkit-animation: spin 1s linear infinite;
             animation: spin 1s linear infinite;
             z-index: 9999;
         }
+
+        .loading-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        background-color: #2563eb;
+        z-index: 10000;
+        transition: width 0.3s ease;
+        }
+
 
         @-webkit-keyframes spin {
             0% { -webkit-transform: rotate(0deg); }
@@ -189,25 +231,34 @@
     </style>
 </head>
 <body>
+    <div id="loading-bar" class="loading-bar"></div>
     <div class="overlay" onclick="toggleSidebar()"></div>
     <div id="loading-spinner" class="loading-spinner"></div>
-    <aside class="sidebar">
-        <div class="brand-logo">
-            <img src="/static/img/logo.jpg" alt="USKG LOGO">
-            <span class="text-lg font-semibold">DigitalPlat FreeDomain Panel</span>
-        </div>
+    <aside class="sidebar" style="overflow-y: auto;">
+        <div class="user-section">
+            <div class="brand-logo">
+              <img src="/static/img/logo.jpg" alt="USKG LOGO">
+              <div>
+                <span class="text-lg font-semibold block text-slate-900">DigitalPlat</span>
+                <span class="text-xs uppercase tracking-[0.2em] text-slate-500">Domain Dashboard</span>
+              </div>
+            </div>
+          </div>
         <button class="collapse-btn" onclick="toggleSidebar()">
             <i class="fas fa-bars"></i>
         </button>
         <nav>
             <a href="#" onclick="loadPage(this, '/panel/overview'); return false;" class="active">
-                <i class="fas fa-tachometer-alt"></i> <span class="nav-text">Dashboard</span>
+                <i class="fas fa-tachometer-alt"></i> <span class="nav-text">Overview</span>
             </a>
             <a href="#" onclick="loadPage(this, '/panel/domains'); return false;">
                 <i class="fas fa-globe"></i> <span class="nav-text">My Domains</span>
             </a>
             <a href="#" onclick="loadPage(this, '/panel/register'); return false;">
                 <i class="fas fa-edit"></i> <span class="nav-text">Domain Registration</span>
+            </a>
+            <a href="#" onclick="loadPage(this, '/panel/redeem_slot'); return false;">
+                <i class="fas fa-key"></i> <span class="nav-text">More slots - Redeem Key</span>
             </a>
             <a href="#" onclick="loadPage(this, '/auth/user/edit'); return false;">
                 <i class="fas fa-user"></i> <span class="nav-text">My Account</span>
@@ -224,8 +275,8 @@
             <a href="https://forms.gle/ASrRCviu16wSc7bc6">
                 <i class="fas fa-arrows-alt"></i> <span class="nav-text">Need more domains?</span>
             </a>
-            <a href="https://nic.us.kg">
-                <i class="fas fa-globe"></i> <span class="nav-text">US.KG NIC</span>
+            <a href="https://domain.digitalplat.org">
+                <i class="fas fa-globe"></i> <span class="nav-text">DigitalPlat Domain</span>
             </a>
             <a href="/logout">
                 <i class="fas fa-sign-out-alt"></i> <span class="nav-text">Logout</span>
@@ -234,11 +285,16 @@
     </aside>
     <div class="main-content">
         <nav class="navbar">
-            <div>
-                <a href="/">US.KG</a>
+            <div class="hidden md:flex items-center">
                 <a href="/panel/domains">Domain List</a>
                 <a href="/panel/register">Register</a>
+                <a href="/panel/redeem_slot">Redeem Key</a>
                 <a href="/auth/user/edit">My Account</a>
+                <a href="#" onclick="event.preventDefault(); openPageInNewTab();">Open in New Tab</a>
+                <button type="button" class="inline-flex items-center space-x-2 text-slate-600 hover:text-slate-900" data-cc="show-preferencesModal">
+                    <img src="/static/img/privacyoptions.svg" alt="Privacy Icon" class="w-5 h-5">
+                    <span class="text-sm font-medium">Do Not Share My Personal Information</span>
+                </button>
             </div>
             <button class="collapse-btn navbar-toggle-btn md:hidden" onclick="toggleSidebar()">
                 <i class="fas fa-bars"></i>
@@ -248,11 +304,6 @@
             <iframe src="/panel/overview" id="content-frame" frameborder="0" scrolling="auto" style="width: 100%; height: calc(100vh - 60px);" allowfullscreen onload="hideLoadingSpinner()"></iframe>
         </div>
     </div>
-    <footer class="footer">
-        <div>
-            <b>US.KG Panel</b> Open in <a href="#" onclick="openPageInNewTab()" class="text-blue-500">New Tab</a> <a href="#" onclick="toggleFullscreen()" class="text-blue-500">Fullscreen</a>
-        </div>
-    </footer>
 
     <script>
         function toggleSidebar() {
@@ -271,16 +322,20 @@
         }
 
         function loadPage(link, url) {
+
             const navLinks = document.querySelectorAll('.sidebar a');
             navLinks.forEach(navLink => navLink.classList.remove('active'));
             link.classList.add('active');
 
+
             const contentFrame = document.getElementById('content-frame');
             showLoadingSpinner();
-
             contentFrame.src = url;
 
-            // Hide sidebar and overlay on mobile after selecting a page
+
+            history.pushState({ url: url }, '', '?page=' + encodeURIComponent(url));
+
+
             if (window.innerWidth <= 768) {
                 const sidebar = document.querySelector('.sidebar');
                 const overlay = document.querySelector('.overlay');
@@ -289,14 +344,23 @@
             }
         }
 
+
         function showLoadingSpinner() {
-            const loadingSpinner = document.getElementById('loading-spinner');
-            loadingSpinner.style.display = 'block';
+            document.getElementById('loading-spinner').style.display = 'block';
+            const bar = document.getElementById('loading-bar');
+            bar.style.width = '0%';
+            setTimeout(() => {
+                bar.style.width = '80%';
+            }, 50);
         }
 
         function hideLoadingSpinner() {
-            const loadingSpinner = document.getElementById('loading-spinner');
-            loadingSpinner.style.display = 'none';
+            document.getElementById('loading-spinner').style.display = 'none';
+            const bar = document.getElementById('loading-bar');
+            bar.style.width = '100%';
+            setTimeout(() => {
+                bar.style.width = '0%';
+            }, 500);
         }
 
         function openPageInNewTab() {
@@ -335,23 +399,59 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             const contentFrame = document.getElementById('content-frame');
+            const params = new URLSearchParams(window.location.search);
+            const initialPage = params.get('page') || '/panel/overview';
+
             showLoadingSpinner();
-            if (contentFrame) {
-                contentFrame.addEventListener('load', function () {
-                    hideLoadingSpinner();
-                });
+            contentFrame.src = initialPage;
+
+            contentFrame.addEventListener('load', function () {
+                hideLoadingSpinner();
+            });
+        });
+
+        window.addEventListener('popstate', function (event) {
+            const url = (event.state && event.state.url) || new URLSearchParams(window.location.search).get('page');
+            if (url) {
+                const contentFrame = document.getElementById('content-frame');
+                showLoadingSpinner();
+                contentFrame.src = url;
             }
         });
-    </script>
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
 
-    <script>
-        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+
+    let lastIframePath = null;
+
+    function pollIframeURL() {
+        const iframe = document.getElementById('content-frame');
+
+        try {
+            const currentPath = iframe.contentWindow.location.pathname;
+
+            if (currentPath !== lastIframePath) {
+                lastIframePath = currentPath;
+
+                history.pushState({ url: currentPath }, '', '?page=' + encodeURIComponent(currentPath));
+            }
+        } catch (err) {
+            console.warn('Cannot access iframe URL due to cross-origin:', err);
+        }
+    }
+
+    setInterval(pollIframeURL, 5000);
+
     </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/685fdc4c056789190faddab3/1iur792r9';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+<!--End of Tawk.to Script-->
 </body>
-</html>
-

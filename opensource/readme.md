@@ -1,6 +1,12 @@
 # DigitalPlat FreeDomain Open Source
-This folder contains portions of the front-end and back-end code we’ve made open-source.
+This folder contains selected parts of our front-end and back-end code that are currently open-sourced.
 
-DigitalPlat is a nonprofit charitable organization that supports open-source and free software. While we fully embrace the principles of transparency and community collaboration, we’ve taken a cautious approach by not yet fully open-sourcing our back-end code. This decision is based on security considerations and the need to mitigate potential vulnerabilities and hacking risks.
+DigitalPlat is a nonprofit organization dedicated to supporting open-source and free software. We strongly believe in transparency and community collaboration. However, due to limited engineering resources and the lack of comprehensive security audits, our back-end codebase has not yet been fully open-sourced.
 
-However, we are committed to gradually open-sourcing more of our codebase over time. This will help us optimize the project and foster greater community involvement. The files in this folder represent the parts of the project that are currently open to the public.
+At the current stage, fully opening the back-end without sufficient review and maintenance capacity could introduce avoidable security risks. For this reason, we are taking a cautious, phased approach to open-sourcing, prioritizing safety and long-term sustainability.
+
+We plan to gradually open-source more components as audits are completed and additional engineering capacity becomes available. The files in this folder represent the portions of the project that are safe and ready for public release at this time.
+
+DigitalPlat Domain Home Website front-end open-source code is available at:
+ https://github.com/DigitalPlatDev/digitalplat-domain-website
+
