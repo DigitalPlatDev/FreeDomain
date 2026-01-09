@@ -1,6 +1,6 @@
 ## 🌐 Welcome to DigitalPlat Domain
 
-<img src="opensource/static/img/logo.jpg" alt="logo" style="zoom: 25%;" />
+<img src="opensource/static/img/logo.jpg" alt="logo" width="25%">
 
 Welcome to **DigitalPlat FreeDomain**, where we believe everyone deserves a digital identity. Whether you're an individual, or an organization, we’re offering free domain names to bring your ideas to life – no strings attached!
 
