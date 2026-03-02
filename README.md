@@ -12,6 +12,8 @@ With FreeDomain, you’re free to register a unique domain and host it with your
 
 At **DigitalPlat FreeDomain**, we’re on a mission to make the web more accessible. We believe that the cost of a domain shouldn’t hold anyone back from creating a website. Our goal is to make the internet an open space where everyone can have their own place online, regardless of budget.
 
+> DigitalPlat FreeDomain is independently designed and maintained by [**Edward Hsing**](https://github.com/EdwardLab), founder of the DigitalPlat Foundation.
+
 ---
 
 ### 🌍 Available Domain Extensions
