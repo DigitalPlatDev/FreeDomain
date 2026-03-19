@@ -66,3 +66,14 @@ We might introduce more domain options and free hosting in the future to help as
 We take domain name abuse seriously and are committed to maintaining a safer and more open internet. Every report is carefully reviewed, and response times may vary from a few hours to several days, depending on the complexity of the case.
 
 Email: abusereport@digitalplat.org
+
+---
+
+## 🧠 Story
+
+This started as a small DNS experiment when I was 15, letting a few friends use subdomains.
+
+Over time, it grew into something people actually rely on, and running it turned out to be much harder than building it.
+
+I wrote a bit about how it evolved here:  
+https://dev.to/edwardhsing/i-bought-a-domain-at-15-now-it-powers-400000-users-7ol
