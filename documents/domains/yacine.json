@@ -1,0 +1,10 @@
+{
+    "domain": "yacine",
+    "subdomain": "dpt.dev",
+    "records": [
+        {
+            "type": "CNAME",
+            "value": "yugsh4as-alt.github.io"
+        }
+    ]
+}
