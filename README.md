@@ -52,7 +52,15 @@ Check [FAQ Page](./documents/domains/faq.md)
 
 ### 🤝 Join Our Community!
 
-🆕 Join the official [DigitalPlat FreeDomain Telegram group](https://t.me/digitalplatdomain), [Discord server](https://discord.gg/ma4RZzMmVW) today! Be the first to know about the latest updates and happenings! Got questions? Facing challenges? Or simply want to show off your awesome builds? Don’t wait—become part of our community now! 🚀
+🆕 Join our official [DigitalPlat FreeDomain Discord server](https://discord.gg/ma4RZzMmVW) today!
+ Be the first to know about the latest updates, get support, and connect with the community.
+ Got questions? Facing challenges? Or just want to share what you're building?
+ Come hang out with us 🚀
+
+⚠️ **Security Notice**
+Our previous Telegram account and group were compromised and are no longer under our control.
+Please **do not trust any messages, links, or announcements** from Telegram, especially anything related to bonuses, earnings, or external sites.
+We are no longer using Telegram as an official communication channel.
 
 ---
 
