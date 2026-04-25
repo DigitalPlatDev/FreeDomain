@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Free airtime</title>
+  <link rel="stylesheet" href="Number.css">
+</head>
+<body>
+  <h1 class="head">Random Number Guess Game</h1>
+  <h2 class="head">Guess the number in 4 attempts to win $1000 worth of airtime </h2>
+  <div class="container">
+  <input id="input" type="number" placeholder="Enter your guess">
+  <button id="subbtn" type="button">Submit</button><br>
+  <label id="p1">Guess the number between 50 and 100</label>
+  <p id="p2"></p>
+  <p id="p3"></p>
+  <label for="inputnum">Phone number:</label>
+  <input id="inputnum" for="subbton" type="number">
+  <button id="subbton" type="button">Submit</button>
+  <p id="p5"></p>
+<div class="p4container">  <p id="p4">Airtime prize available only for Tanzania, Uganda, and Kenya.</p></div>
+  </div>
+</body>
+
+<script>
+  const input = document.getElementById("input");
+  const subbtn = document.getElementById("subbtn");
+  const p1 = document.getElementById("p1");
+  const p2 = document.getElementById("p2");
+  const p3 = document.getElementById("p3");
+const subbton = document.getElementById("subbton");
+const p5 = document.getElementById("p5");
+
+  const min = 50;
+  const max = 100;
+  const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+  let attempts = 0;
+
+  subbtn.onclick = function() {
+    const guess = parseInt(input.value);
+    attempts++;
+
+    if (isNaN(guess)) {
+      p2.textContent = "Please enter a valid number.";
+      return;
+    }
+
+    if (guess === randomNum) {
+      p2.textContent = `🎉 Correct! You win $1000 airtime!`;
+      p3.textContent = `Your number: ${document.getElementById("inputnum").value}`;
+      subbtn.disabled = true;
+    } else if (attempts >= 4) {
+      p2.textContent = `❌ Game over! The correct number was ${randomNum}.`;
+      subbtn.disabled = true;
+    } else {
+      p2.textContent = guess < randomNum ? "Too low!" : "Too high!";
+      p3.textContent = ''; //`Attempts left: ${4 - attempts}`;//
+    }
+  };
+subbton.onclick = function() {
+  const inputnum = document.getElementById("inputnum").value;
+  const phonenumber = parseInt(inputnum);
+  if(isNaN(phonenumber) || inputnum.length<10) {
+    p5.textContent ="Enter a valid phone number"
+  }
+  else{
+    p5.textContent = `Your phonenumber is ${phonenumber}, you will recieve your prize after validation`
+  }
+};
+  
+</script>
+</html>
