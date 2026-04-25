@@ -1,0 +1,12 @@
+{
+  "description": "Srii Anish - Cyber Security Portfolio",
+  "domain": "is-a.dev",
+  "subdomain": "sriianish",
+  "owner": {
+    "username": "SRIIANISH-BYTE",
+    "email": "sriianish13@gmail.com"
+  },
+  "record": {
+    "CNAME": "sriianish-byte.github.io"
+  }
+}
