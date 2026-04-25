@@ -1,0 +1,11 @@
+{
+  "description": "My personal domain for Oracle Cloud test",
+  "domain": "kf52fullmetal-dotcom.fr.to",
+  "subdomain": "kf52fullmetal-dotcom",
+  "owner": {
+    "email": "kf52.fullmetal@gmail.com"
+  },
+  "record": {
+    "A": ["168.138.46.160"]
+  }
+}
