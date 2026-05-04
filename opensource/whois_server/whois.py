@@ -1,8 +1,25 @@
+import os
 import socket
 import logging
+import time
+import collections
 
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
+
+# Rate limiting: max 10 requests per 60 seconds per IP
+RATE_LIMIT_MAX = 10
+RATE_LIMIT_WINDOW = 60
+_rate_limit_store = collections.defaultdict(list)
+
+def is_rate_limited(ip):
+    now = time.time()
+    window_start = now - RATE_LIMIT_WINDOW
+    _rate_limit_store[ip] = [t for t in _rate_limit_store[ip] if t > window_start]
+    if len(_rate_limit_store[ip]) >= RATE_LIMIT_MAX:
+        return True
+    _rate_limit_store[ip].append(now)
+    return False
 
 def whois(query):
     try:
@@ -13,7 +30,7 @@ def whois(query):
         return "Internal server error"
 
 def main():
-    host = '0.0.0.0'
+    host = os.getenv("WHOIS_BIND_ADDRESS", "127.0.0.1")
     port = 43
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -26,6 +43,15 @@ def main():
         try:
             client_socket, addr = server_socket.accept()
             logging.info(f"Received connection from {addr}")
+            client_ip = addr[0]
+
+            if is_rate_limited(client_ip):
+                logging.warning(f"Rate limit exceeded for {client_ip}")
+                try:
+                    client_socket.sendall("Rate limit exceeded. Try again later.\r\n".encode('utf-8'))
+                finally:
+                    client_socket.close()
+                continue
 
             try:
                 with client_socket:
