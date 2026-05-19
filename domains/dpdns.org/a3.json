@@ -1,0 +1,12 @@
+{
+    "subdomain":  "a3",
+    "record":  {
+                   "CNAME":  "usd20088.github.io"
+               },
+    "description":  "Personal domain registration",
+    "domain":  "dpdns.org",
+    "owner":  {
+                  "email":  "usd20088@gmail.com",
+                  "username":  "usd20088"
+              }
+}
