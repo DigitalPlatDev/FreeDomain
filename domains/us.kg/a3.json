@@ -1,9 +1,12 @@
 {
   "subdomain": "a3",
   "record": {
-    "CNAME": "minicooper.tplinkdns.com"
+    "NS": [
+      "clayton.ns.cloudflare.com",
+      "mimi.ns.cloudflare.com"
+    ]
   },
-  "description": "Personal domain registration",
+  "description": "Personal domain registration delegated to Cloudflare",
   "domain": "us.kg",
   "owner": {
     "email": "usd20088@gmail.com",
